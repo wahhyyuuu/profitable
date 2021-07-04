@@ -16,6 +16,13 @@ class Home extends BaseController
 	{
 		return view('welcome_message');
 	}
+	public function test5()
+	{
+	public function conflict(){
+		return view('welcome_message');
+	}
+	public function test1321()
+	{
 	public function conflict(){
 		return view('welcome_message');
 	}
