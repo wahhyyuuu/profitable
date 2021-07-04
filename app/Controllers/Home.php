@@ -29,7 +29,7 @@ class Home extends BaseController
 	public function conflict3(){
 		return view('welcome_message');
 	}
-	public function coba_baru(){
+	public function coba_baru1234567890(){
 		return view('welcome_message');
 	}
 }
