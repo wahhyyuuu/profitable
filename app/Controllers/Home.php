@@ -16,4 +16,8 @@ class Home extends BaseController
 	{
 		return view('welcome_message');
 	}
+	public function test5()
+	{
+		return view('welcome_message');
+	}
 }
