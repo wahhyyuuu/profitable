@@ -32,4 +32,7 @@ class Home extends BaseController
 	public function coba_baru(){
 		return view('welcome_message');
 	}
+	public function rizky(){
+		return view('welcome_message');
+	}
 }
