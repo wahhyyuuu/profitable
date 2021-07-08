@@ -19,13 +19,13 @@ class Properti extends Migration
 				'type'			=> 'VARCHAR',
 				'constraint'	=> 100
 			],
-			'kabupaten'	=> [
-				'type'	=> 'VARCHAR',
-				'constraint'	=> 30
-			],
 			'provinsi'	=> [
 				'type'			=> 'VARCHAR',
-				'constraint'	=> 30
+				'constraint'	=> 100
+			],
+			'kabupaten'	=> [
+				'type'	=> 'VARCHAR',
+				'constraint'	=> 100
 			],
 			'luas_tanah'	=> [
 				'type'			=> 'INT',
