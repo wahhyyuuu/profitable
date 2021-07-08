@@ -30,6 +30,11 @@ class Transaksi extends Migration
 				'constraint' => '50',
 				'null' => true,
 			],
+			'status' => [
+				'type' => 'ENUM',
+				'constraint' => ['success', 'pending', 'rejected'],
+				'default' => 'pending',
+			],
 			'created_at' => [
 				'type' => 'DATETIME',
 				'null' => true,
