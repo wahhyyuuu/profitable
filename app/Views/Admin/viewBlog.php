@@ -5,7 +5,7 @@
 </div>
 <table class="table">
             <thead>
-                <tr style="background-color: #fc0;">
+                <tr>
                     <th scope="col">#</th>
                     <th scope="col">Judul</th> 
                     <th scope="col">Aksi</th>
@@ -23,5 +23,5 @@
                     
             </tbody>
             </table>
-            <center><a href="/artikel/tambah" class="btn btn-success">Tambah Data</a></center>
+            <center><a href="/tambahBlog" class="btn btn-success">Tambah Data</a></center>
 <?= $this->endSection(); ?>

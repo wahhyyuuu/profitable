@@ -35,7 +35,7 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/admin/', 'AdminController::index');
 $routes->get('/admin/blog/', 'AdminBlog::index');
-
+$routes->get('/admin/blog/add', 'AdminBlog::add');
 /*
  * --------------------------------------------------------------------
  * Additional Routing

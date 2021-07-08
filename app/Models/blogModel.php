@@ -8,15 +8,15 @@ class blogModel extends Model
 {
     protected $table      = 'blog';
     protected $useTimestamps = true;
-    protected $allowedFields=['judul','author','isi','updated_at','created_at'];
+    protected $allowedFields=['judul','isi','created_at','updated_at','author'];
 
-    public function getAdminBlog($slug = false)
+    public function getAdminBlog($judul = false)
     {
-        if($slug == false)
+        if($judul == false)
         {
             return $this->findAll();
         }
-            return $this->where(['slug'=>$slug])->first();
+            return $this->where(['judul'=>$judul])->first();
     }
     // public function search($kunci)
     // {
