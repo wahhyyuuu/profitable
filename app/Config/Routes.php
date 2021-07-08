@@ -34,22 +34,27 @@ $routes->setAutoRoute(true);
 // route since we don't have to scan directories.
 $routes->get('/', 'Home::index');
 $routes->get('/admin', 'AdminController::index');
+
+// Properti
 $routes->get('/admin/properti', 'PropertiController::index');
 $routes->get('/admin/properti/add', 'PropertiController::addProperti');
 
-/*
- * --------------------------------------------------------------------
- * Additional Routing
- * --------------------------------------------------------------------
- *
- * There will often be times that you need additional routing and you
- * need it to be able to override any defaults in this file. Environment
- * based routes is one such time. require() additional route files here
- * to make that happen.
- *
- * You will have access to the $routes object within that file without
- * needing to reload it.
- */
+// Blog
+$routes->get('/admin/blog/', 'AdminBlog::index');
+$routes->get('/admin/blog/add', 'AdminBlog::add');
+
+// ------------------------------
+//  * Additional Routing
+//  * --------------------------------------------------------------------
+//  *
+//  * There will often be times that you need additional routing and you
+//  * need it to be able to override any defaults in this file. Environment
+//  * based routes is one such time. require() additional route files here
+//  * to make that happen.
+//  *
+//  * You will have access to the $routes object within that file without
+//  * needing to reload it.
+//  */
 if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
 {
 	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';
