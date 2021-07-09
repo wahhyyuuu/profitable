@@ -37,7 +37,8 @@ $routes->get('/admin', 'AdminController::index');
 
 // Properti
 $routes->get('/admin/properti', 'PropertiController::index');
-$routes->get('/admin/properti/add', 'PropertiController::addProperti');
+$routes->get('admin/properti/add', 'PropertiController::addProperti');
+$routes->add('admin/properti/store', 'PropertiController::storeProperti');
 
 // Blog
 $routes->get('/admin/blog/', 'AdminBlog::index');

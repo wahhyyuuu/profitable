@@ -49,7 +49,8 @@ class Properti extends Migration
 				'type'			=> 'VARCHAR',
 				'constraint'	=> 50
 			],
-			'created_at DATETIME DEFAULT CURRENT_TIMESTAMP'
+			'created_at DATETIME DEFAULT CURRENT_TIMESTAMP',
+			'updated_at DATETIME DEFAULT CURRENT_TIMESTAMP'
 		]);
 		$this->forge->addKey('id', TRUE);
 		$this->forge->createTable('properti', TRUE);
