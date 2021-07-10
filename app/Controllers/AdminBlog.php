@@ -14,7 +14,7 @@ class AdminBlog extends BaseController
 	{
 		$data=[
             'title'=>"Blog Management",
-    	    'adminblog'=>$this->BlogModel->getAdminBlog()
+    	    'adminblog'=>$this->blogModel->getAdminBlog()
         ];
         return view('Admin/viewBlog',$data);
 	}

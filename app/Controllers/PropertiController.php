@@ -37,6 +37,18 @@ class PropertiController extends BaseController
         return view('Admin/Properti/add_properti', $data);
     }
 
+    public function editProperti($id)
+    {
+        $provinsi = $this->daerahIndonesia('province');
+        $data = [
+            'title' => 'Edit Properti',
+            'properti'  => $this->PropertiModel->find($id),
+            'validation' => \Config\Services::validation(),
+            'provinsi' => json_decode($provinsi)->rajaongkir->results
+        ];
+        return view('Admin/Properti/edit_properti',$data);
+    }
+
     public function getCity()
     {
         if($this->request->isAJAX())
@@ -163,6 +175,90 @@ class PropertiController extends BaseController
         unlink('assets/images/properti/'.$properti['foto_properti']);
         $this->PropertiModel->delete($id);
         session()->setFlashdata('pesan', 'Data berhasil dihapus');
+        return redirect()->to('/admin/properti');
+    }
+
+    public function updateProperti()
+    {
+        if(!$this->validate(
+            [
+                'lokasi_properti' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Lokasi properti harus diisi'
+                    ]
+                ],
+                'provinsi' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Provinsi harus diisi'
+                    ]
+                ],
+                'kabupaten' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Kabupaten harus diisi'
+                    ]
+                ],
+                'dokumen_kepemilikan' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Dokumen Kepemilikan harus diisi'
+                    ]
+                ],
+                'luas_tanah' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Luas Tanah harus diisi'
+                    ]
+                ],
+                'luas_bangunan' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Luas Bangunan harus diisi'
+                    ]
+                ],
+                'deskripsi_properti' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Deskripsi harus diisi'
+                    ]
+                ],
+                'harga_properti' => [
+                    'rules' => 'required',
+                    'errors' => [
+                        'required' => 'Harga Properti harus diisi'
+                    ]
+                ]
+            ]
+        )){
+            $validation = \Config\Services::validation();
+            return redirect()->to('/admin/properti/add')->withInput()->with('validation', $validation);
+        }
+
+        $filegambar = $this->request->getFile('foto_properti');
+        if($filegambar->getError() == 4) {
+            $namagambar = $this->request->getVar('foto_properti_old');
+        } else {
+            $namagambar = $filegambar->getRandomName();
+            $filegambar->move('assets/images/properti/', $namagambar);
+            unlink('assets/images/properti/'.$this->request->getVar('foto_properti_old'));
+        }
+
+        $id = $this->request->getVar('id');
+        $data = [
+            'lokasi_properti' => $this->request->getVar('lokasi_properti'),
+            'provinsi' => $this->request->getVar('provinsi'),
+            'kabupaten' => $this->request->getVar('kabupaten'),
+            'luas_tanah' => $this->request->getVar('luas_tanah'),
+            'luas_bangunan' => $this->request->getVar('luas_bangunan'),
+            'deskripsi_properti' => $this->request->getVar('deskripsi_properti'),
+            'dokumen_kepemilikan' => $this->request->getVar('dokumen_kepemilikan'),
+            'harga_properti' => $this->request->getVar('harga_properti'),
+            'foto_properti' => $namagambar
+        ];
+        $this->PropertiModel->update($id,$data);
+        session()->setFlashdata('pesan', 'Properti Berhasil Diubah');
         return redirect()->to('/admin/properti');
     }
 }

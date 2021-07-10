@@ -75,8 +75,8 @@
                                                 <div class="modal-header bg-primary">
                                                     <h5 class="modal-title white" id="myModalLabel160">Detail Properti
                                                     </h5>
-                                                    <button type="button" class="close text-white" data-bs-dismiss="modal"
-                                                        aria-label="Close">
+                                                    <button type="button" class="close text-white"
+                                                        data-bs-dismiss="modal" aria-label="Close">
                                                         <span aria-hidden="true">&times;</span>
                                                     </button>
                                                 </div>
@@ -125,12 +125,11 @@
                                                         <i class="bx bx-x d-block d-sm-none"></i>
                                                         <span class="d-none d-sm-block">Close</span>
                                                     </button>
-                                                    <a href="<?= base_url(); ?>/PropertiController/deleteProperti/<?= $row['id']; ?>" class="btn btn-danger ml-1" onclick="return confirm('Apakah yakin akan menghapus properti ini?')">Delete</a>
-                                                    <button type="button" class="btn btn-primary ml-1"
-                                                        data-bs-dismiss="modal">
-                                                        <i class="bx bx-check d-block d-sm-none"></i>
-                                                        <span class="d-none d-sm-block">Edit</span>
-                                                    </button>
+                                                    <a href="<?= base_url(); ?>/PropertiController/deleteProperti/<?= $row['id']; ?>"
+                                                        class="btn btn-danger ml-1"
+                                                        onclick="return confirm('Apakah yakin akan menghapus properti ini?')">Delete</a>
+                                                    <a href="/admin/properti/edit/<?= $row['id']; ?>"
+                                                        class="btn btn-primary ml-1">Edit</a>
                                                 </div>
                                             </div>
                                         </div>
