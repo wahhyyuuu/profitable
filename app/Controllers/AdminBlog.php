@@ -21,7 +21,7 @@ class AdminBlog extends BaseController
     public function add()
 	{
 		$data=[
-			'title'=>'Form Tambah Data Artikel',
+			'title'=>'Blog Baru',
 			'validation'=>\Config\Services::validation()
 			];
 			return view('Admin/addBlog',$data);
@@ -37,32 +37,23 @@ class AdminBlog extends BaseController
 						'is_unique'=>'{field} Blog Tidak Boleh Sama'
 					]
 	
-					],
-					'gambar'=>[
-						'rules'=>'max_size[gambar,1024]|is_image[gambar]|mime_in[gambar,image/jpg,image/jpeg,image/png]',
-						'errors'=>
-							[
-								'uploaded'=> 'pilih gambar terlebih dahulu',
-								'max_size'=> 'ukuran gambar terlalu besar',
-								'is_image'=> 'file anda bukan gambar',
-								'mime_in'=> 'file anda bukan gambar'
-							]
-						]
+					]
 			]
 			))
 			{
-				// $validation =\Config\Services::validation();
-				// return redirect()->to('/artikel/tambah')->withInput()->with('validation',$validation);
-				return redirect()->to('/addBlog')->withInput();
+				return redirect()->to('Admin/addBlog')->withInput();
 			}
-			$filegambar=$this->request->getFile('gambar');
-			if($filegambar->getError()==4){
-				$namagambar='team-1.jpg';
-			}
-			else{
-			$namagambar=$filegambar->getRandomName();
-			$filegambar->move('template/assets/img/',$namagambar);
-			}
+			$this->blogModel->save(
+				[
+					'judul'=>$this->request->getVar('judul'),
+					'author'=>$this->request->getVar('author'),
+					'isi'=>$this->request->getVar('isi'),
+					'created_at'=>$this->request->getVar('created_at'),
+					'updated_at'=>$this->request->getVar('updated_at'),
+				]
+			);
+			session()->setFlashdata('pesan','Data Sudah Ditambahkan');
+			return redirect()->to('/viewBlog');
 	}
     public function edit()
 	{

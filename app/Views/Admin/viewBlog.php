@@ -23,5 +23,5 @@
                     
             </tbody>
             </table>
-            <center><a href="/tambahBlog" class="btn btn-success">Tambah Data</a></center>
+            <center><a href="blog/add" class="btn btn-success">Tambah Data</a></center>
 <?= $this->endSection(); ?>

@@ -8,7 +8,7 @@ class blogModel extends Model
 {
     protected $table      = 'blog';
     protected $useTimestamps = true;
-    protected $allowedFields=['judul','isi','created_at','updated_at','author'];
+    protected $allowedFields=['judul','author','isi','created_at','updated_at'];
 
     public function getAdminBlog($judul = false)
     {
