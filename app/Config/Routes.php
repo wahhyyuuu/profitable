@@ -46,18 +46,9 @@ $routes->add('admin/properti/update', 'PropertiController::updateProperti');
 $routes->get('/admin/blog/', 'AdminBlog::index');
 $routes->get('/admin/blog/add', 'AdminBlog::add');
 
-// ------------------------------
-//  * Additional Routing
-//  * --------------------------------------------------------------------
-//  *
-//  * There will often be times that you need additional routing and you
-//  * need it to be able to override any defaults in this file. Environment
-//  * based routes is one such time. require() additional route files here
-//  * to make that happen.
-//  *
-//  * You will have access to the $routes object within that file without
-//  * needing to reload it.
-//  */
+// Topup
+$routes->get('/user/invoices/(:any)', 'UserController::getInvoice/$1');
+
 if (file_exists(APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php'))
 {
 	require APPPATH . 'Config/' . ENVIRONMENT . '/Routes.php';

@@ -14,6 +14,17 @@ class AdminController extends BaseController
             'title' => 'Dashboard',
 			'jumlahProperti' => $this->PropertiModel->countAll()
         ];
+		$data = [
+			'title' => 'Dashboard'
+		];
 		return view('Admin/index', $data);
+	}
+
+	public function riwayatopup()
+	{
+		$data = [
+			'title' => 'Top-up History'
+		];
+		return view('Admin/topupadmin', $data);
 	}
 }
