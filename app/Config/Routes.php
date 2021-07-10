@@ -35,6 +35,8 @@ $routes->setAutoRoute(true);
 $routes->get('/', 'Home::index');
 $routes->get('/admin/', 'AdminController::index');
 
+$routes->get('/user/invoices/(:any)', 'UserController::getInvoice/$1');
+
 /*
  * --------------------------------------------------------------------
  * Additional Routing
