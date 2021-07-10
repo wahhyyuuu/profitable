@@ -127,6 +127,11 @@
                                     </li>
                                     <li><a class='dropdown-item' href="#"><i
                                                 class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</a></li>
+                                    <?php /* if(logged_in()) : ?>
+                                        <a class='dropdown-item' href="/logout"><i class="icon-mid bi bi-box-arrow-left me-2"></i> Logout</a>
+                                    <?php else : ?>
+                                        <a class='dropdown-item' href="/login"><i class="icon-mid bi bi-box-arrow-left me-2"></i> Login </a></li>
+                                    <?php endif; */?>
                                 </ul>
                             </div>
                         </div>
