@@ -7,6 +7,7 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
+                    <th scope="col">Blog ID</th>
                     <th scope="col">Judul</th> 
                     <th scope="col">Aksi</th>
                 </tr>
