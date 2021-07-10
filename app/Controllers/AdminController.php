@@ -11,4 +11,5 @@ class AdminController extends BaseController
         ];
 		return view('Admin/index', $data);
 	}
+
 }
