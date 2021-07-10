@@ -12,6 +12,15 @@ class UserController extends BaseController
         ];
 		return view('user/u_index', $data);
 	}
+
+	public function biodata()
+	{
+        $data = [
+            'title' => 'Dashboard'
+        ];
+		return view('user/biodata', $data);
+	}
+	
 	public function riwayat_tu()
 	{
         $data = [
